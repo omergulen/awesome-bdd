@@ -25,17 +25,12 @@ const Card = ({ site }: Props) => (
           },
         }}
       >
-        <Link aria-label={`View ${site.name} source on GitHub`} href={site.build_settings.repo_url}>
-          <div>GitHub</div>
-        </Link>
+
       </div>
     </div>
     <div sx={{ mt: 3, a: { mr: 2 } }}>
       <a href={`https://app.netlify.com/sites/${site.name}/deploys`}>
-        <img
-          alt={`Netlify Deploy status of ${site.name}`}
-          src={`${site.netlify_id}`}
-        />
+       
       </a>
     </div>
   </div>
