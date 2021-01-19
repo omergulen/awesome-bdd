@@ -13,11 +13,11 @@ const sites = [
   }
 ];
 
-const Grid = () => {
+const Grid = ( { children }) => {
 
   return (
     <div sx={{ variant: `grids.dashboard` }}>
-      {sites.map(site =>  <Card key={site.name} site={site} />)}
+      {children}
     </div>
   )
 }

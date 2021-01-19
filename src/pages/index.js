@@ -4,6 +4,22 @@ import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 import Grid from "../components/grid"
 import Info from "../components/info"
+import {MDXProvider} from "@mdx-js/react"
+import Intro from "../../README"
+
+const convertToKebabCase = (string) => {
+  return string.replace(/\s+/g, '-').toLowerCase();
+};
+
+const isExternal = (url) => {
+  return url.includes('http');
+};
+
+const components = {
+  h3: props => <h3 {...props} id={convertToKebabCase(props.children)} />,
+  h2: props => <h2 {...props} id={convertToKebabCase(props.children)} />,
+  a: props => <a {...props} target={isExternal(props.href) ? "_blank" : null} />
+}
 
 const Index = ({
   data: {
@@ -62,31 +78,10 @@ const Index = ({
         <meta name="twitter:description" content={siteDescription} />
         <meta name="twitter:image" content={`${siteUrl}/social.png`} />
       </Helmet>
-      <h1
-        css={css`
-          @media (min-width: 600px) {
-            font-size: 3rem;
-          }
-          margin-bottom: 0.5rem;
-        `}
-      >
-        {siteName}
-      </h1>
-      <p
-        css={css`
-          @media (min-width: 600px) {
-            font-size: 1.5rem;
-          }
-          color: rgb(96, 111, 123);
-          margin-top: 0.75rem;
-          margin-bottom: 3rem;
-        `}
-      >
-        {siteDescription}
-      </p>
-      <Info />
       <div css={css({ marginTop: `1rem` })} />
-      <Grid />
+      <MDXProvider components={components}>
+        <Intro />
+      </MDXProvider>
       <footer
         css={css({
           textAlign: `center`,
@@ -122,6 +117,13 @@ export const query = graphql`
         siteName
         siteDescription
         siteUrl
+      }
+    }
+    allMarkdownRemark {
+      edges {
+        node {
+          html
+        }
       }
     }
   }
