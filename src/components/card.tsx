@@ -14,10 +14,12 @@ type Props = {
 }
 
 const Card = ({ url, description, text }) => {
+  const isExternal = (url) => url.includes('http');
+
   return (
   <div key={url} sx={{ variant: `cards.dashboard` }}>
     <div data-name="card-top" sx={{ display: `flex`, justifyContent: `space-between`, alignItems: `center` }}>
-      <Link href={url}>{text}</Link>
+      <Link href={url} target={isExternal(url) ? "_blank" : null} >{text}</Link>
       <div
         sx={{
           svg: { fill: `currentColor` },
