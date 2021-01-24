@@ -14,15 +14,12 @@ module.exports = ({ markdownAST }, pluginOptions) => {
 
         if (!contentPhase) {
             if (isFirstList) {
-                console.log('children: ', children);
                 children = children.map(child => {
-                    console.log('child: ', child);
                     const isHeading = child.children[0].position.start.column === 3;
                     if (isHeading) {
                         return `<infoitem title="${toString(child.children[0].children[0])}"></infoitem>`;
                     }
                 });
-                console.log('children: ', children);
                 node.type = "html";
                 node.children = null;
                 node.value = `<info>${children.join('')}</info>`;
