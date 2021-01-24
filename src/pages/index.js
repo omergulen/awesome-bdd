@@ -1,32 +1,43 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { Global, css } from "@emotion/core"
 import { graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 import Grid from "../components/grid"
-import Info from "../components/info"
-import {MDXProvider} from "@mdx-js/react"
-import Intro from "../../README"
+import { Info, Item } from "../components/info"
 
-const convertToKebabCase = (string) => {
-  return string.replace(/\s+/g, '-').toLowerCase();
-};
-
-const isExternal = (url) => {
-  return url.includes('http');
-};
-
-const components = {
-  h3: props => <h3 {...props} id={convertToKebabCase(props.children)} />,
-  h2: props => <h2 {...props} id={convertToKebabCase(props.children)} />,
-  a: props => <a {...props} target={isExternal(props.href) ? "_blank" : null} />
-}
+import rehypeReact from "rehype-react"
+import Card from "../components/card"
 
 const Index = ({
   data: {
     config: { siteMetadata },
+    allMarkdownRemark: { edges }
   },
 }) => {
   const { siteDescription, siteName, siteUrl } = siteMetadata
+  const { node: { htmlAst } } = edges[0];
+
+  const convertToKebabCase = (string) => string.replace(/\s+/g, '-').toLowerCase();
+
+  const isExternal = (url) => url.includes('http');
+
+  const componentMapping = useMemo(() => {
+    return {
+      a: props => <a {...props} target={isExternal(props.href) ? "_blank" : null} />,
+      h2: props => <h2 {...props} id={convertToKebabCase(props.children[0])} />,
+      h3: props => <h3 {...props} id={convertToKebabCase(props.children[0])} />,
+      awesomecard: Card,
+      awesomegrid: Grid,
+      infoitem: Item,
+      info: Info
+    };
+  });
+
+  const renderAst = new rehypeReact({
+    createElement: React.createElement,
+    components: componentMapping,
+    Fragment: React.Fragment
+  }).Compiler
 
   return (
     <main
@@ -79,9 +90,7 @@ const Index = ({
         <meta name="twitter:image" content={`${siteUrl}/social.png`} />
       </Helmet>
       <div css={css({ marginTop: `1rem` })} />
-      <MDXProvider components={components}>
-        <Intro />
-      </MDXProvider>
+      {renderAst(htmlAst)}
       <footer
         css={css({
           textAlign: `center`,
@@ -122,7 +131,7 @@ export const query = graphql`
     allMarkdownRemark {
       edges {
         node {
-          html
+          htmlAst
         }
       }
     }

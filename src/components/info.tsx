@@ -2,21 +2,23 @@
 import React from "react"
 import { jsx, Flex } from "theme-ui"
 
-const Item = ({ input }: { input: string }) => (
+const convertToKebabCase = (string) => string.replace(/\s+/g, '-').toLowerCase();
+
+export const Item = ({ title }) => (
   <Flex sx={{ mr: [3, 3, 4], mb: [3, 3, 4], alignItems: `center` }}>
-    <div
+    <a
       sx={{
         variant: `cards.label`,
       }}
+      href={`#${convertToKebabCase(title)}`}
     >
-      {input}
-    </div>
+      {title}
+    </a>
   </Flex>
-)
+);
 
-const Info = () => {
-  const count = 5;
-
+export const Info = ({ children }) => {
+  console.log('children: ', children);
   return (
     <Flex
       sx={{
@@ -24,10 +26,8 @@ const Info = () => {
         variant: `cards.icon`,
       }}
     >
-      <Item input={`${count} Websites`} />
-      <Item input={`${count} CircleCI Projects`} />
+      {children}
     </Flex>
   )
 }
 
-export default Info
