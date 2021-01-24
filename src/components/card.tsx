@@ -13,10 +13,11 @@ type Props = {
   }
 }
 
-const Card = ({ site }: Props) => (
-  <div key={site.netlify_id} sx={{ variant: `cards.dashboard` }}>
+const Card = ({ url, description, text }) => {
+  return (
+  <div key={url} sx={{ variant: `cards.dashboard` }}>
     <div data-name="card-top" sx={{ display: `flex`, justifyContent: `space-between`, alignItems: `center` }}>
-      <Link href={site.url}>{site.name}</Link>
+      <Link href={url}>{text}</Link>
       <div
         sx={{
           svg: { fill: `currentColor` },
@@ -25,15 +26,12 @@ const Card = ({ site }: Props) => (
           },
         }}
       >
-
       </div>
     </div>
     <div sx={{ mt: 3, a: { mr: 2 } }}>
-      <a href={`https://app.netlify.com/sites/${site.name}/deploys`}>
-       
-      </a>
+      {description}
     </div>
-  </div>
-)
+  </div>)
+}
 
 export default Card
