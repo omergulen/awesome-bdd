@@ -2,81 +2,66 @@ const visit = require("unist-util-visit")
 const toString = require("mdast-util-to-string")
 
 module.exports = ({ markdownAST }, pluginOptions) => {
-    let visitedThemeBar = false;
+    let contentPhase = false;
+    let isFirstList = true;
+    // TODO :: generalize this shit
     visit(markdownAST, ["list", "thematicBreak"], node => {
-        console.log(node);
         let { type, children } = node;
 
-        if (type === "thematicBreak" && !visitedThemeBar) {
-            visitedThemeBar = true;
+        if (type === "thematicBreak") {
+            contentPhase = !contentPhase;
         }
 
-        if (!visitedThemeBar) {
-            return;
+        if (!contentPhase) {
+            if (isFirstList) {
+                console.log('children: ', children);
+                children = children.map(child => {
+                    console.log('child: ', child);
+                    const isHeading = child.children[0].position.start.column === 3;
+                    if (isHeading) {
+                        return `<infoitem title="${toString(child.children[0].children[0])}"></infoitem>`;
+                    }
+                });
+                console.log('children: ', children);
+                node.type = "html";
+                node.children = null;
+                node.value = `<info>${children.join('')}</info>`;
+                isFirstList = !isFirstList;
+                return;
+            }
+
+            return; 
         }
 
         if (!children) {
             return;
         }
 
-
-
-        // let { depth } = node
-        // // Skip if not an h1
-        // if (depth !== 1) return
-        // Grab the innerText of the heading node
-        let text = toString(node)
-        const html = `
-        <h1 style="color: rebeccapurple">
-          ${text}
-        </h1>
-        `
-
-
         children = children.map(child => {
-            a = {
-                url: "",
-                linkText: "",
-                description: "",
-                type: "awesome-card",
-                children: undefined,
-                value: "",
-            }
-            // console.log("child:", child);
+            let url= "";
+            let linkText= "";
+            let description= "";
             const { children: subChildren } = child;
             if (subChildren) {
-                // console.log("subChildren:", subChildren);
                 const { children: subChildChildren } = subChildren[0];
                 if (subChildChildren) {
-                    // console.log("subChildChildren:", subChildChildren);
                     if (subChildChildren[0].type === "link") {
-                        a.url = subChildChildren[0].url;
-                        a.linkText = subChildChildren[0].children[0].value;
+                        url = subChildChildren[0].url;
+                        linkText = subChildChildren[0].children[0].value;
                     }
                     if (subChildChildren[1].type === "text") {
-                        a.description = subChildChildren[1].value.replace(" - ", "");
+                        description = subChildChildren[1].value.replace(" - ", "");
                     }
                 }
             }
 
-            return {
-                ...child,
-                ...a
-            };
+            return `<awesomecard url="${url}" text="${linkText}" description="${description}"></awesomecard>`;
         });
 
-        // const testing = `<testing>${children}</testing>`;
+        node.type = "html";
+        node.children = null;
+        node.value = `<awesomegrid>${children.join('')}</awesomegrid>`;
+    });
 
-        // console.log("testing", testing);
-
-        node.test = "asdfasdfs";
-        node.type = "html"
-        node.children = children
-        node.value = "sss"
-    })
-
-
-
-
-    return markdownAST
+    return markdownAST;
 }
