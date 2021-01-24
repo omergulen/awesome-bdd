@@ -30,10 +30,4 @@ A collection of awesome things regarding the behavior driven development ecosyst
 
 ## Contribution
 
-### xxxxx
-xxxxxx
-asd
-
-**Test**
-### Test
-test
+Please, do not try to use this list as advertisement board or place for public push of your experiments. Only fully free resources here, please. Your contributions and suggestions are heartily♡ welcome, though. (✿◠‿◠)
