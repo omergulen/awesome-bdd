@@ -14,24 +14,23 @@ const Index = ({
     allMarkdownRemark: { edges }
   },
 }) => {
-  const { siteDescription, siteName, siteUrl } = siteMetadata
+  const { siteDescription, siteName, siteUrl } = siteMetadata;
   const { node: { htmlAst } } = edges[0];
 
   const convertToKebabCase = (string) => string.replace(/\s+/g, '-').toLowerCase();
-
   const isExternal = (url) => url.includes('http');
 
   const componentMapping = useMemo(() => {
     return {
-      a: props => <a {...props} target={isExternal(props.href) ? "_blank" : null} />,
-      h2: props => <h2 {...props} id={convertToKebabCase(props.children[0])} />,
-      h3: props => <h3 {...props} id={convertToKebabCase(props.children[0])} />,
+      a: props => (<a {...props} target={isExternal(props.href) ? "_blank" : null} >{props.children}</a>),
+      h2: props => (<h2 {...props} id={convertToKebabCase(props.children[0])} >{props.children}</h2>),
+      h3: props => (<h3 {...props} id={convertToKebabCase(props.children[0])} >{props.children}</h3>),
       awesomecard: Card,
       awesomegrid: Grid,
       infoitem: Item,
       info: Info
     };
-  });
+  }, []);
 
   const renderAst = new rehypeReact({
     createElement: React.createElement,
