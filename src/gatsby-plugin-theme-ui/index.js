@@ -68,6 +68,7 @@ export default merge(tailwind, {
       display: `grid`,
       gridTemplateColumns: [`1fr`, `1fr`, `1fr 1fr`],
       gridGap: [3, 3, 4],
+      mb: 24
     },
   },
 })
