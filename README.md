@@ -10,7 +10,7 @@ A collection of awesome things regarding the behavior driven development ecosyst
   - [Guides](#guides)
   - [Related Awesome Lists](#related-awesome-lists)
   - [Videos](#videos)
-- [BDD Tools and Testing Frameworks](#bdd-tools-and-testing-frameworks)
+- [Tools](#tools)
   - [.NET](#net)
   - [C#](#c-sharp)
   - [Go](#go)
@@ -67,7 +67,7 @@ A collection of awesome things regarding the behavior driven development ecosyst
 - [An Introduction to Behavior-Driven Development (BDD) with Cucumber for Java](https://www.youtube.com/watch?v=MCaXumfckmQ) - by  Oracle Developers.
 - [An Introduction to BDD from Konstantin Kudryashov](https://www.youtube.com/watch?v=njcHzGYv7nI) - by Inviqa.
 
-## BDD Tools and Testing Frameworks
+## Tools
 
 ### .NET
 - [Bard](https://github.com/sjclark76/Bard) - Bard is a test library written by Developers for Developers. It is as much a development tool as it is a test library. Although Bard is a .NET library it can be used to test any API if you want.
