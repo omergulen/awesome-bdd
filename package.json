@@ -1,9 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "name": "gatsby-awesome-starter",
+  "description": "A simple starter to convert awesome READMEME.md files into neat web pages.",
+  "version": "1.0.0",
+  "author": "Omer Gulen <omrglen@gmail.com>",
   "dependencies": {
     "@emotion/react": "^11.1.4",
     "@mdx-js/mdx": "^1.6.22",
@@ -36,7 +35,10 @@
     "prettier": "2.2.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "awesome",
+    "readme",
+    "starter"
   ],
   "license": "0BSD",
   "scripts": {
@@ -50,9 +52,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/omergulen/awesome-bdd/"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/omergulen/awesome-bdd/issues"
   }
 }
