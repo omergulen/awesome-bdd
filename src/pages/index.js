@@ -1,6 +1,7 @@
 import React, { useMemo } from "react"
 import { Global, css } from "@emotion/core"
 import { graphql } from "gatsby"
+import GitHubButton from 'react-github-btn'
 import { Helmet } from "react-helmet"
 import Grid from "../components/grid"
 import { Info, Item } from "../components/info"
@@ -88,6 +89,16 @@ const Index = ({
         <meta name="twitter:image" content={`${siteUrl}/social.png`} />
       </Helmet>
       <div css={css({ marginTop: `1rem` })} />
+      <GitHubButton
+        href="https://github.com/omergulen/awesome-bdd"
+        data-color-scheme="no-preference: dark; light: light; dark: dark;"
+        data-icon="octicon-star"
+        data-size="large"
+        data-show-count="true"
+        aria-label="Star omergulen/awesome-bdd on GitHub"
+      >
+        omergulen/awesome-bdd
+      </GitHubButton>
       {renderAst(htmlAst)}
       <footer
         css={css({
