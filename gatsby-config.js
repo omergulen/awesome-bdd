@@ -51,6 +51,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-122322547-7`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-typescript`,
       options: {
         isTSX: true, // defaults to false
