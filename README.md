@@ -1,6 +1,13 @@
 # **Awesome BDD** [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 A collection of awesome things regarding the behavior driven development ecosystem.
+A curated list of courses, tutorials, libraries, tips and tricks, books, videos and awesome resources about TDD.
+
+*Inspired by the [awesome](https://github.com/sindresorhus/awesome) list thing. You might also like [awesome-tdd](https://github.com/omergulen/awesome-tdd).*
+
+*Please read the [contribution guidelines](#guidelines) before contributing.*
+
+**Say *hi* on [Twitter](https://twitter.com/omergulenn).**
 
 ## Table of Contents
 - [Resources](#resources)
@@ -57,6 +64,7 @@ A collection of awesome things regarding the behavior driven development ecosyst
 
 ## Related Awesome Lists
 
+- [Awesome TDD](https://github.com/omergulen/awesome-tdd) -  A collection of awesome things regarding the test-driven development ecosystem.
 - [The Original](https://github.com/sindresorhus/awesome) - The awesome list of awesome lists.
 - [Awesome Cucumber](https://github.com/virajkulkarni14/Awesome-Cucumber) -  A collection of awesome Cucumber and Gherkin-related resources.
 - [Awesome Software Quality](https://github.com/ligurio/awesome-software-quality) - A list of free software testing and verification resources.
