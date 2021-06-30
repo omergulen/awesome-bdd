@@ -128,6 +128,28 @@ SpecFlow makes test automation easier by turning it into a team effort and allow
 
 ---
 
-## Contribution
+## Contributing
 
-Please, do not try to use this list as advertisement board or place for public push of your experiments. Only fully free resources here, please. Your contributions and suggestions are heartily♡ welcome, though. (✿◠‿◠)
+Found an awesome blog, video, talk, tutorial etc that's not on this list?. Notify me or send a PR.
+
+### Guidelines
+
+* Please make an individual pull request for each suggestion
+* Make sure what you are adding is not already on the list
+* Use the following format: `* [Name](Link)`
+* Add it to the bottom of the section, not top or middle
+* Check your spelling and grammar
+* Make sure there is no trailing whitespace
+* If you are adding resources for a new language or framework, make sure it has a reference in the Table of Contents.
+* Last, Make sure it is awesome!
+
+
+## How can I thank you?
+
+Why not star the github repo? I'd love the attention! Why not share the link for this repository on Twitter or HackerNews? Spread the word!
+
+Don't forget to [follow me on twitter](https://twitter.com/omergulenn)!
+
+Thanks!
+[Omer Gulen](https://github.com/omergulen) & [Cemal Kilic](https://github.com/cemalkilic).
+
