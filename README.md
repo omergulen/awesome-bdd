@@ -48,7 +48,7 @@ A curated list of courses, tutorials, libraries, tips and tricks, books, videos 
 - [Shift Left with Behavior Driven Development](https://smartbear.com/product/testleft/features/behavior-driven-development/) - by Smartbear.
 
 ### Books
-- [BDD in Action, Second Edition: Behavior-driven development for the whole software lifecycle](https://www.amazon.com/-/de/dp/1617297534/) - by  John Ferguson Smart and Jan Molak.
+- [BDD in Action, Second Edition: Behavior-driven development for the whole software lifecycle](https://a.co/d/937gPhn) - by  John Ferguson Smart and Jan Molak.
 - [The Cucumber Book: Behaviour-Driven Development for Testers and Developers (Pragmatic Programmers)](https://www.amazon.com/Cucumber-Book-Behaviour-Driven-Development-Programmers/dp/1934356808/httpwwwtuto0a-20) - by Matt Wynne, Aslak Hellesoy.
 - [Learning Behavior-driven Development with JavaScript](https://www.amazon.com/Learning-Behavior-driven-Development-JavaScript-Enrique/dp/1784392642/httpwwwtuto0a-20) - by Enrique Amodeo.
 - [Test Driven Development: By Example](https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530/httpwwwtuto0a-20) - by Kent Beck.
