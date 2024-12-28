@@ -113,6 +113,7 @@ SpecFlow makes test automation easier by turning it into a team effort and allow
 - [react-hot-loader](https://github.com/gaearon/react-hot-loader) - Tweak React components in real time.
 - [RestQA](https://github.com/restqa/restqa) - All-in-one API test automation framework with a great developer experience. Based on Cucumber.
 - [Yadda](https://github.com/acuminous/yadda) -  A BDD javascript library.
+- [Playwright-BDD](https://github.com/vitalets/playwright-bdd) - A library to run BDD tests with Playwright runner.
 
 ### Objective-C
 - [Specta](https://github.com/specta/specta) - A light-weight TDD / BDD framework for Objective-C.
